@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
 import { userContext } from "../../store/userContent";
 
@@ -9,9 +9,9 @@ function Header() {
   function logouthandler(){
     setuser(null)
   }
+  const location=useLocation()
   return (
     <>
-    
       <header className="site-header" id="site-header">
         <div className="container">
           <p onClick={toggleSidebarVisibility} className="hamburger hamburger--light site-header__toggle-sidebar">
@@ -29,10 +29,11 @@ function Header() {
           <p onClick={logouthandler} className="btn btn--hollow site-header__signin">Logout</p> 
           </>
           }
+          
           {!user &&
           <>
-          <Link to="/login" className="btn btn--hollow site-header__signin">Log in</Link>
-          <Link to="/signup" className="btn btn--hollow site-header__signin">Sign up</Link>
+          <Link to={{pathname:'/login', state:{prevPath: location.pathname}}} className="btn btn--hollow site-header__signin">Log in</Link>
+          <Link to="/signup" className="btn btn--hollow ">Sign up</Link>
           </>
           }
         </div>

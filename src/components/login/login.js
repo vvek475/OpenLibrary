@@ -7,11 +7,16 @@ export default function Login(props){
     const [error, setError] = useState(false);
     const { user, setuser } = useContext(userContext);
   
-    useEffect(() => {
+    /* useEffect(() => {
       if (user) {
         props.history.push('/');
       }
-    }, [user, props.history])
+    }, [user, props.history]) */
+    useEffect(() => {
+      if (user && props.location.state.prevPath) {
+        props.history.push(props.location.state.prevPath);
+      }
+    }, [user, props.history, props.location])
   
     const handleSubmit = async (e) => {
       e.preventDefault();

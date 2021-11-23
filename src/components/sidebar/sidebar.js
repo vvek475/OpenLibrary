@@ -19,20 +19,16 @@ function Sidebar() {
         </p>
 
         <ul>
-        <li>
+          <li>
               <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/list">List</Link>
             </li>
-            <li>
-              <Link to="/detail">Book</Link>
-            </li>
             {user&&
             <li>
               <Link to="/create">Create</Link>
-            </li>
-            }
+            </li>}
         </ul>
       </div>
     </>

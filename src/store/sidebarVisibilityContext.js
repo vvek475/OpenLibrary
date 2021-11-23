@@ -6,7 +6,7 @@ const SidebarVisibilityContext = createContext();
 export function SidebarVisibilityContextProvider({children}) {
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
 
-  // helper function to make the callsite cleaner
+// this can be done directly with setter funcn but we're using this to make it look clean
   function toggleSidebarVisibility() {
     setSidebarVisibility((prevState) => prevState ? false : true );
   }

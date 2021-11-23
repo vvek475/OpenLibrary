@@ -40,8 +40,8 @@ export default function SignUp(props){
         console.log(error)
     return (
         <>
+        <h1>Signup</h1>
         <div>
-            
             <form onSubmit={handlesunmit}>
             <input type="email" value={email} onChange={(e) => { setError(''); setEmail(e.target.value)}} />
             <input type="password" value={password} onChange={(e) => { setError(''); setPassword(e.target.value)}} />
